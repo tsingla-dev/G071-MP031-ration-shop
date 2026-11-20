@@ -5,6 +5,9 @@ extra_duplicates = train.duplicated().sum()
 
 print("Extra duplicate rows:", extra_duplicates)
 
+
+
+
 holdout = pd.read_csv("data/raw/holdout_features.csv")
 train_only_columns = []
 
@@ -13,3 +16,15 @@ for column in train.columns:
         train_only_columns.append(column)
 
 print("Extra train-only columns:", train_only_columns)
+
+
+
+
+
+
+later = pd.read_csv("data/raw/later.csv")
+
+for column in ["shop_area", "block"]:
+    print("\nColumn:", column)
+    print("Training spellings:", list(train[column].unique()))
+    print("Clean spellings:", list(later[column].unique()))
