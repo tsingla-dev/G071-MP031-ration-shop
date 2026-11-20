@@ -28,3 +28,41 @@ for column in ["shop_area", "block"]:
     print("\nColumn:", column)
     print("Training spellings:", list(train[column].unique()))
     print("Clean spellings:", list(later[column].unique()))
+
+
+
+
+
+
+
+
+    print("\nTypical training values by block:")
+print(train.groupby("block").median(numeric_only=True).T)
+
+print("\nTypical later values by block:")
+print(later.groupby("block").median(numeric_only=True).T)
+
+
+
+
+
+
+
+
+
+
+north_stock = train.loc[train["block"] == "Block North", "stock_kg_morning"]
+other_stock = train.loc[train["block"] != "Block North", "stock_kg_morning"]
+
+print("Block North after dividing by 1000:", (north_stock / 1000).agg(["min", "mean", "max"]))
+print("Other training blocks:", other_stock.agg(["min", "mean", "max"]))
+
+
+
+
+
+
+
+sorted_targets = train["grain_kg"].sort_values(ascending=False)
+print("\nLargest 30 grain_kg values:")
+print(sorted_targets.head(30).tolist())
