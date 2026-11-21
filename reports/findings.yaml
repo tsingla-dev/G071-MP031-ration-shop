@@ -1,0 +1,35 @@
+data_issues:
+  duplicate_rows:
+    present: true
+    count: 55
+
+  leaking_column:
+    present: false
+    column: null
+
+  spelling_variants:
+    present: false
+    column: null
+    true_levels: null
+
+  unit_mixup:
+    present: true
+    column: stock_kg_morning
+    group_value: Block North
+    factor: 1000
+
+  target_typos:
+    present: false
+    count: null
+
+  sentinel_value:
+    present: true
+    column: cards_attached
+    value: -999
+    count: 65
+
+  stuck_sensor:
+    present: true
+    column: biometric_failures
+    start_date: 2026-03-30
+    end_date: 2026-04-17
